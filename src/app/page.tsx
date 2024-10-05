@@ -5,8 +5,24 @@ import { motion, useAnimation } from 'framer-motion'
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Sparkles, Shirt, ShoppingBag, User, Undo, ChevronDown, ChevronUp } from "lucide-react"
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa'
+import Image from 'next/image'
+import { ReactNode } from 'react'
 
-const colors = {
+interface Colors {
+  peachFuzz: string;
+  pastelPeach: string;
+  pastelMint: string;
+  pastelLavender: string;
+  darkGrey: string;
+  lightGrey: string;
+}
+
+interface Brand {
+  name: string;
+  url: string;
+}
+
+const colors  = {
   peachFuzz: '#FFBE98',
   pastelPeach: '#FFDAB9',
   pastelMint: '#C1FFC1',
@@ -41,6 +57,16 @@ const faqs = [
     answer: "You already know we got the hookup! Subscribers get access to exclusive drips, early dibs on new features, personalized style reports that'll blow your mind, and VIP customer support that's smoother than butter. We're always adding more sauce to keep your fashion game on point!"
   }
 ]
+
+interface FeatureCardProps {
+  icon: ReactNode;
+  title: string;
+  description: string;
+  colors: {
+    darkGrey: string;
+    lightGrey: string;
+  };
+}
 
 export default function LandingPage() {
   const [text, setText] = useState('')
@@ -106,7 +132,7 @@ export default function LandingPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              Slay all day with AI-powered fits and a digital wardrobe that's always on fleek!
+              Slay all day with AI-powered fits and a digital wardrobe that is always on fleek!
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -231,7 +257,7 @@ export default function LandingPage() {
   )
 }
 
-function FeatureCard({ icon, title, description, colors }) {
+function FeatureCard({ icon, title, description, colors }: FeatureCardProps) {
   return (
     <motion.div
       className="p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
@@ -248,7 +274,7 @@ function FeatureCard({ icon, title, description, colors }) {
   )
 }
 
-function BackgroundAnimation({ colors }) {
+function BackgroundAnimation({ colors }:{ colors: Colors }) {
   return (
     <div className="absolute inset-0 overflow-hidden opacity-20">
       <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
@@ -275,7 +301,7 @@ function BackgroundAnimation({ colors }) {
   )
 }
 
-function BrandCarousel({ brands }) {
+function BrandCarousel({ brands }: { brands: Brand[] }) {
   return (
     <div className="overflow-hidden">
       <motion.div
@@ -295,7 +321,7 @@ function BrandCarousel({ brands }) {
       >
         {brands.concat(brands).map((brand, index) => (
           <div key={index} className="w-[300px] flex items-center justify-center px-8">
-            <img src={brand.url} alt={brand.name} className="h-12 object-contain" style={{ filter: 'brightness(0)' }} />
+            <Image src={brand.url} alt={brand.name} className="h-12 object-contain" style={{ filter: 'brightness(0)' }} />
           </div>
         ))}
       </motion.div>
