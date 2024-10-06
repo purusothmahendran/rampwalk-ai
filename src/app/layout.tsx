@@ -14,7 +14,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Ramp Walk - AI Stylist & Personal Shooper",
+  title: "Ramp Walk - AI Stylist & Personal Shopper",
   description: "Rampwalk.ai",
 };
 
