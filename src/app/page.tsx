@@ -49,10 +49,6 @@ const faqs = [
     answer: "It's easy peasy, fam! We kick things off with a quick lil' quiz to get your style 411. Then our AI goes beast mode, cooking up fits that'll make you look straight fire! Plus, you can snap pics of your drip to build your digital wardrobe. It's like Pokémon GO, but for your closet!"
   },
   {
-    question: "How much is it?",
-    answer: "Listen up, it's a straight steal! You can cop this drip for just $19.99 a month. But if you're bout that year-long grind, we'll hook you up for $150. That's like two months free, no cap! We're basically giving away clout at this point."
-  },
-  {
     question: "Are there additional perks?",
     answer: "You already know we got the hookup! Subscribers get access to exclusive drips, early dibs on new features, personalized style reports that'll blow your mind, and VIP customer support that's smoother than butter. We're always adding more sauce to keep your fashion game on point!"
   }
@@ -94,8 +90,9 @@ export default function LandingPage() {
   }
 
   const handleJoinWaitlist = () => {
-    console.log('Joining waitlist')
+    console.log('Joining waitlist Survey')
     // Add your waitlist logic here
+    window.location.href = 'https://1yl41jafny5.typeform.com/to/PqtYJfko'
   }
 
   return (
